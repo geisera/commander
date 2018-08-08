@@ -4,12 +4,14 @@
 	</head>
 
 	<body>
-		<h1>
-			<?php
+		<center>
+			<h1>
+				<?php
 
-			echo "Php test succesful!";
+				echo "Php test succesful!";
 
-			?>
-		</h1>
+				?>
+			</h1>
+		</center>
 	</body>
 </html>
