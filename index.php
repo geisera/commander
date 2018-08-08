@@ -1,68 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Armada</title>
+  <!-- ! -->
+  <title>Commander</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="javascript.js"></script>
   <style>
     #myCanvas {
 		border: solid 1px blue;  
 		width: 100%;
+		text-align: center;
+	}
+	
+	canvas {
+        display: inline; 
+    }
+	
+	#mapDiv {
+		min-height: 200px;  
+		min-width: 300px;
+		max-width: 1000px;
 	}
   </style>
 </head>
-<body> 
-
-<div class="container">
-  <h1></h1>
-  <div class="well">	
-	<h2>OVERVIEW</h2>
-	
-  <div align="center">	
-    <canvas id="myCanvas" width="1000" height="400" style="border:1px solid #000000;">
-    </canvas>
-    <script>
-      var canvas = document.getElementById('myCanvas');
-      var context = canvas.getContext('2d');
-      var imageObj = new Image();
-
-      imageObj.onload = function() {
-        context.drawImage(imageObj, -100, -100);
-      };
-      imageObj.src = 'khmap.png';
-    </script>	
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+<!-- Container OVERVIEW -->
+  <div class="text-center">
+    <h2></h2>
+    <h4></h4>
   </div>
-  
-  <table class="table">
-    <thead>
-      <tr>
-        <th></th>
-        <th>STATUS</th>
-        <th>COMMAND</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-	    <td style="background-color:lavender;"><span class="label label-primary">POPULATION</span></td>
-        <td><span class="label label-success col-sm">NOMINAL</span></td>
-        <td><button type="button" class="btn">***</button></td>
-	  </tr>
-    </tbody>
-  </table>
-  <div class="" align="center">
-	  <button type="button" class="btn">Basic</button>
-	  <button type="button" class="btn btn-default">EXPLORATION</button>
-	  <button type="button" class="btn btn-primary">MANUFACTURING</button>
-	  <button type="button" class="btn btn-success">SCIENCE/RESEARCH</button>
-	  <button type="button" class="btn btn-info">Info</button>
-	  <button type="button" class="btn btn-warning">Warning</button>
-	  <button type="button" class="btn btn-danger">TACTICAL</button>
+  <div class="col-sm-12 col-xs-12">
+	<h1>Command Overview</h1>
+    <div class="well text-center">
+	  <!-- Command Button Group -->
+		<button type="button" class="btn btn-primary btn-lg">NAVIGATION</button>
+		<button type="button" class="btn btn-primary btn-lg">TACTICAL</button>
+		<button type="button" class="btn btn-primary btn-lg">SENSOR CONTROL</button>
+		<button type="button" class="btn btn-primary btn-lg">ENGEERING</button>
+		<button type="button" class="btn btn-primary btn-lg">DAMAGE CONTROL</button>
+		<button type="button" class="btn btn-primary btn-lg">LIFE SUPPORT</button>  
+		<button type="button" class="btn btn-primary btn-lg">DAMAGE CONTROL</button>  
+	</div>
+	<div class="row">
+		<div id="canvas-container" class="col-sm-12 col-xs-12">
+			<canvas id="myCanvas">
+				Your browser does not support the HTML5 canvas tag.
+			</canvas>
+			<script>Map();</script>
+		</div>	
+	</div>
+	<div class="well text-center">
+		<h1>
+			<button type="button" onclick="mapRight();" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span> Left</button>
+			<button type="button" onclick="mapDown();" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-up"></span> Up</button>
+			<button type="button" onclick="mapLeft();" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-right"></span> Right</button>
+            <button type="button" onclick="mapUp();" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-down"></span> Down</button>
+			<button type="button" onclick="mapLeft();" class="btn btn-primary"><span class="glyphicon glyphicon-asterisk"></span> </button>
+		</h1>
+	</div>
+	<div class="well text-center">
+		<button class="btn btn-primary btn-lg">BUTTON</button>
+	</div> 
   </div>
-  
-  </div>
-</div>
 </body>
 </html>
+
+
